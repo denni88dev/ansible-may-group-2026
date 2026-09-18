@@ -1,0 +1,25 @@
+- hosts: hello
+  become: true          #-> sudo for all tasks below
+  vars:            #-> variables for php
+    php_packages:  #-> variable name (any)/ key:value / php_packages:ghostscript
+      - ghostscript 
+      - libapache2-mod-php 
+      - php 
+      - php-bcmath 
+      - php-curl 
+      - php-imagick 
+      - php-intl 
+      - php-json 
+      - php-mbstring 
+      - php-mysql 
+      - php-xml 
+      - php-zip    
+  tasks:
+  - name: Install apache
+    include_tasks: apache.yml
+  - name: Install php
+    include_tasks: php.yml 
+  - name: Install wordpress
+    include_tasks: wordpress.yml  
+  - name: Install mysql
+    include_tasks: db.yml  

@@ -1,0 +1,15 @@
+- name: Install php dependencies
+  ansible.builtin.apt: 
+    name: "{{ php_packages }}" #-> in main.yml created variables(key:value)
+    # - ghostscript 
+    # - libapache2-mod-php 
+    # - php 
+    # - php-bcmath 
+    # - php-curl 
+    # - php-imagick 
+    # - php-intl 
+    # - php-json 
+    # - php-mbstring 
+    # - php-mysql 
+    # - php-xml 
+    # - php-zip    

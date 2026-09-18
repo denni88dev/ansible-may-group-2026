@@ -1,0 +1,18 @@
+- name: Install apache httpd (state=present is optional)
+  ansible.builtin.apt: #-> apt
+    name: apache2      #-> apache2
+    state: present     #-> install
+    update_cache: yes #-> true/yes - sudo apt update(ubuntu vm's)
+
+- name: Start service httpd, if not started
+  ansible.builtin.service:
+    name: apache2
+    state: started  
+    enabled: true  
+
+# - name: Add the user 'johnd' with a specific uid and a primary group of 'admin'
+#   ansible.builtin.user:    # specific build inn module
+#     name: johnd
+
+# - name: Add the user ann   # shell module
+#   ansible.builtin.shell: sudo useradd ann

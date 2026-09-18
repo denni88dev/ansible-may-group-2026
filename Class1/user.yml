@@ -1,0 +1,16 @@
+- hosts: all  #-> completly diff yml not belong to main
+  become: true
+  tasks:
+    - name: Create user
+      ansible.builtin.user:
+        name: "{{ item }}" #-> item (i) means loop. each item from loop - name
+      loop:
+        - jenny
+        - rose
+        - lisa
+        - john
+      # name:      # -> one of approaches but ansible not support list. use loop for that
+      #   - jenny
+      #   - rose
+      #   - lisa
+      #   - john

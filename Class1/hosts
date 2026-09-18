@@ -1,0 +1,5 @@
+[hello]
+wordpress ansible_host=34.238.158.11 ansible_user=ubuntu ansible_python_interpreter=/usr/bin/python3.12  # -> specifiying wich user to use(ubuntu to ubuntu no problem)
+wordpress2 ansible_host=54.225.56.255 ansible_user=ubuntu ansible_python_interpreter=/usr/bin/python3.12  # -> specifiying wich user to use(ubuntu to ubuntu no problem)
+[world]
+wordpress3 ansible_host=54.198.198.170 ansible_user=ubuntu ansible_python_interpreter=/usr/bin/python3.12  # -> specifiying wich user to use(ubuntu to ubuntu no problem)
