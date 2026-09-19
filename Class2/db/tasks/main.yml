@@ -1,0 +1,30 @@
+- name: Install mysql server
+  ansible.builtin.apt: 
+    name: mysql-server     
+    state: present     
+    update_cache: yes 
+
+- name: Start service mysql
+  ansible.builtin.service:
+    name: mysql
+    state: started  
+    enabled: true  
+
+#->  FAILED! => {"changed": false, "msg": "A MySQL module is required: for Python 2.7 either PyMySQL, or MySQL-python, or for Python 3.X mysqlclient or PyMySQL
+- name: Install PyMySQL
+  ansible.builtin.apt: 
+    name: python3-pymysql  # -> package name. google 
+
+- name: Create a new database 
+  ansible.mysql.mysql_db:
+    name: "{{ db_name }}"
+    state: present
+    login_unix_socket: /run/mysqld/mysqld.sock # -> specify where mysqld.sock file lives on vm's. so it can find and connect
+     
+- name: Create database user 
+  ansible.mysql.mysql_user:
+    name: "{{ db_user }}"
+    password: "{{ db_pass }}"
+    priv: '*.*:ALL'
+    state: present
+    login_unix_socket: /run/mysqld/mysqld.sock

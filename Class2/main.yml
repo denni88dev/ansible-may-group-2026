@@ -1,0 +1,7 @@
+- hosts: all
+  become: true
+  roles:        #-> tasks: / roles:(task inside roles)
+    - apache    #-> apache role (class2/apache(anyname)/tasks(a must name):main.yml)
+    - php       #-> php role(folder)
+    - wordpress #-> wordpress role
+    - db        #-> db role

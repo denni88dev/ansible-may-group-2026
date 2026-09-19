@@ -1,0 +1,3 @@
+- name: Install php dependencies
+  ansible.builtin.apt: 
+    name: "{{ php_packages }}"

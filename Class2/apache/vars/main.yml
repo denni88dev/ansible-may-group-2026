@@ -1,0 +1,2 @@
+# apache/defaults/main.yml will overwrite default's values in apache/defaults/main.yml
+state: present  #-> absent - delete
